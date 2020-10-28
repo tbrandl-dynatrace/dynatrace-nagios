@@ -1,7 +1,6 @@
 # dynatrace-nagios
 
-This simple shell script allows to get metrics from Nagios plugins and directly send them to Dynatrace.
-
+This simple shell script allows to get metrics from Nagios plugins and directly send them to Dynatrace using dynatrace_ingest.
 # Usage
 ```bash
 ./dynatrace_nagios.sh [OPTIONS] "[nagios_command_including_parameters]"
@@ -26,4 +25,5 @@ Short option | Long Option | Parameter | Description
 ./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_load -r"
 ./dynatrace_nagios.sh -d disk "/usr/lib/nagios/plugins/check_disk -w 95 -c 98"
 ./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_tcp -p 22" -a protocol=ssh -v
+./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_host www.amazon.com" -a dt.entity.application=APPLICATION-073FCAFAFDEAAC57 --test
 ```
