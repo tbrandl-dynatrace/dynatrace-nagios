@@ -1,4 +1,4 @@
-# dynatrace-nagios
+# Nagios plugins for Dynatrace integration
 
 This simple shell script allows to get metrics from Nagios plugins and directly send them to Dynatrace using dynatrace_ingest.
 # Usage
