@@ -15,7 +15,7 @@ usage () {
         echo "Examples:"
        	echo -e "\t$0 \"/usr/lib/nagios/plugins/check_load -r\""
 	echo -e "\t$0 -d disk \"/usr/lib/nagios/plugins/check_disk -w 95 -c 98\""
-	echo -e "\t$0"
+	echo -e "\t$0 \"/usr/lib/nagios/plugins/check_tcp -p 22\" -a protocol=ssh -v"
 	exit 1	
 }
 
