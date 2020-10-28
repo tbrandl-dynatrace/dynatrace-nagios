@@ -28,5 +28,5 @@ Short option | Long Option | Parameter | Description
 ./dynatrace_nagios.sh -d disk "/usr/lib/nagios/plugins/check_disk -w 95 -c 98"
 ./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_tcp -p 22" -a protocol=ssh -v
 ./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_host www.amazon.com" -a dt.entity.application=APPLICATION-073FCAFAFDEAAC57 --test
-./dynatrace_nagios.sh /usr/lib/nagios/plugins/check_swap -w 90 -e https://xxxxxxxx.live.dynatrace.com/api/v2/metrics/ingest -k xxxxxxxxxxxxxxx
+./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_swap -w 90" -e https://xxxxxxxx.live.dynatrace.com/api/v2/metrics/ingest -k xxxxxxxxxxxxxxx
 ```
