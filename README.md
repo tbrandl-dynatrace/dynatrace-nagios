@@ -30,3 +30,11 @@ Short option | Long Option | Parameter | Description
 ./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_host www.amazon.com" -a dt.entity.application=APPLICATION-073FCAFAFDEAAC57 --test
 ./dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_swap -w 90" -e https://xxxxxxxx.live.dynatrace.com/api/v2/metrics/ingest -k xxxxxxxxxxxxxxx
 ```
+
+## Full working example using CRON
+```bash
+# Sending the metric every minute
+* * * * * /home/ubuntu/dynatrace-nagios/dynatrace_nagios.sh "/usr/lib/nagios/plugins/check_load -r"
+# Sending every 5 minutes
+*/5 * * * * /home/ubuntu/dynatrace-nagios/dynatrace_nagios.sh -d disk "/usr/lib/nagios/plugins/check_disk -w 95 -c 98"
+```
