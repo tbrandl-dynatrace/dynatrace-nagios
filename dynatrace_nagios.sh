@@ -79,7 +79,14 @@ NAGIOS_COMMAND=`echo "$NAGIOS_COMMAND"|cut -d" " -f1`
 
 NAGIOS_COMMAND=`basename $NAGIOS_COMMAND`
 
-NAGIOS_PERFDATA=`echo "$NAGIOS_RESULT"|cut -d\| -f2`
+NAGIOS_PERFDATA=`echo "$NAGIOS_RESULT"|grep \||cut -d\| -f2`
+
+if [ -z "$NAGIOS_PERFDATA" ]; then
+	if [ -n "$VERBOSE" ]; then
+		echo "No performance data from plugin: $NAGIOS_RESULT"
+	fi
+	exit 4
+fi
 
 DYNATRACE_METRICS=`echo $NAGIOS_PERFDATA|awk 'BEGIN { RS = " " } {split($0,metric,"="); gsub(/[^\.0-9]++.*/, "", metric[2]); print '\"$DT_NAGIOS_PREFIX$NAGIOS_COMMAND$DIMENSION\"'metric[1]"'$ADDITIONAL_DIMENSION' "metric[2]}'`
 
